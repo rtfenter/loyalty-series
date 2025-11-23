@@ -77,4 +77,4 @@ This series translates that complexity into practical, small artifacts for PMs, 
 ---
 
 ## About This Repo  
-This repository is the **central hub** for all loyalty-related work — writing, diagrams, prototypes, and system investigations.  
+This repository is the **central hub** for all loyalty-related work — writing, diagrams, prototypes, and system models.  
