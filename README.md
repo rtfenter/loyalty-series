@@ -8,7 +8,7 @@ My goal is to make loyalty design legible — not as marketing, but as a distrib
 
 ---
 
-## 📘 Writing  
+## Writing  
 A curated selection of essays exploring loyalty systems, platforms, ML governance, and data integrity.
 
 - **[Why Loyalty Systems Are Some of the Hardest Products to Build (and the Most Underrated)](https://medium.com/@rtfenter/why-loyalty-systems-are-some-of-the-hardest-products-to-build-and-the-most-underrated-d9f638097840)**
@@ -17,11 +17,9 @@ A curated selection of essays exploring loyalty systems, platforms, ML governanc
 - **[Designing for Data Integrity at Global Scale](https://medium.com/@rtfenter/designing-for-data-integrity-at-global-scale-3c7fb8af5c6f)**
 - **[When Personalization Learns Too Fast](https://medium.com/@rtfenter/when-personalization-learns-too-fast-901b0883adb0)**
 
-(Medium URLs can be added once you paste your real links.)
-
 ---
 
-## 🧪 Projects (In Progress)
+## Projects (In Progress)
 
 These projects each have their own repo and contribute to the broader loyalty portfolio.
 
@@ -45,7 +43,7 @@ A tiny dashboard showing how inconsistent loyalty events create drift in targeti
 
 ---
 
-## 🗺️ System Diagrams  
+## System Diagrams  
 These diagrams illustrate how loyalty systems behave behind the scenes.
 
 - Earn → Ledger → Redeem Event Flow  
@@ -57,7 +55,7 @@ These diagrams illustrate how loyalty systems behave behind the scenes.
 
 ---
 
-## 🎯 Purpose of This Series  
+## Purpose of This Series  
 Loyalty systems are often framed as marketing features, but in practice they are:
 
 - distributed systems  
@@ -71,13 +69,13 @@ This series translates that complexity into practical, small artifacts for PMs, 
 
 ---
 
-## 🔗 Portfolio & Writing  
+## Portfolio & Writing  
 - Medium: https://medium.com/@rtfenter  
 - LinkedIn: https://www.linkedin.com/in/rtfenter/ 
 - GitHub: https://github.com/rtfenter
 
 ---
 
-## 🧩 About This Repo  
+## About This Repo  
 This repository is the **central hub** for all loyalty-related work — writing, diagrams, prototypes, and system investigations.  
 It will grow gradually and intentionally, one small artifact at a time.
