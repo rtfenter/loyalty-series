@@ -48,12 +48,133 @@ A tiny dashboard showing how inconsistent loyalty events create drift in targeti
 ## System Diagrams  
 These diagrams illustrate how loyalty systems behave behind the scenes.
 
-- Earn → Ledger → Redeem Event Flow  
-- Points Truth Drift Map  
-- FX Conversion and Tiered Value Reconciliation  
-- Partner-Specific Rules and Multi-Market Drift  
+- Earn → Ledger → Redeem Event Flow
+### Earn → Ledger → Redeem Event Flow
 
-(Diagrams will be added as the series grows.)
+```text
+[User Purchase]
+      |
+      v
+[Earn Event Created]
+      |
+      v
+[Event Ingest Layer]
+      |
+      v
+[Points Engine]
+  - apply FX (normalize to base currency)
+  - apply earn rules (rate, tier, partner)
+      |
+      v
+[Points Ledger]
+  - record points_earned
+  - update balance
+      |
+      v
+[Redemption Triggered]
+      |
+      v
+[Redeem Event Created]
+      |
+      v
+[Redemption Engine]
+  - validate balance
+  - apply reward rules
+      |
+      v
+[Liability & Reporting]
+  - update financial liability
+  - expose to analytics / BI
+
+  ```
+---
+
+## Points Truth Drift Map
+
+```text
+                [Source of Truth: Points Ledger]
+                           |
+           -----------------------------------------
+           |                   |                  |
+           v                   v                  v
+   [Service A]           [Service B]        [Service C]
+   (Marketing UI)        (BI Dashboard)     (ML Model)
+
+Examples of Drift:
+- Service A:
+    point_value = $0.01
+    earn_rate   = 1 point per $1
+- Service B:
+    point_value = $0.012   (outdated config)
+    earn_rate   = 1.2 points per $1
+- Service C:
+    point_value = $0.01
+    earn_rate   = 1 point per $1
+    but missing partner rules
+
+Consequences:
+- inconsistent balances shown to users
+- mismatched liability in finance
+- ML model learning from stale or conflicting “truth”
+ ```
+ ---
+ ## FX Conversion and Tiered Value Reconciliation
+
+```text
+[Purchase: amount + currency + partner + tier]
+                    |
+                    v
+           [FX Normalization Layer]
+           - convert to base currency (e.g. USD)
+                    |
+                    v
+         [Tier & Rule Evaluation Engine]
+         - read tier (Silver / Gold / Platinum)
+         - apply earn_rate and multipliers
+         - apply partner overrides / campaigns
+                    |
+                    v
+             [Points Calculation]
+          points_earned = normalized_amount * effective_earn_rate
+                    |
+                    v
+            [Ledger & Liability View]
+          - write transaction to points ledger
+          - update outstanding liability in base currency
+          - expose reconciled view to finance / reporting
+ ```
+ ---
+
+## Partner-Specific Rules and Multi-Market Drift
+
+```markdown
+### Partner-Specific Rules and Multi-Market Drift
+
+```text
+                [Global Program Config]
+                          |
+        ------------------------------------------------
+        |                      |                       |
+        v                      v                       v
+  [Partner A]             [Partner B]             [Partner C]
+  Region: US              Region: EU              Region: APAC
+  Base earn: 1x           Base earn: 1.5x         Base earn: 0.8x
+  FX: USD                 FX: EUR → USD           FX: JPY → USD
+  Extra rule:             Extra rule:             Extra rule:
+    - double points         - weekend boost         - category-specific
+
+Potential Drift Points:
+- inconsistent earn logic between partners
+- misaligned FX timing across regions
+- missing or outdated partner overrides
+- partial rollout of new rules
+
+Result:
+- users in different markets see different “truths” for the same program
+- finance and analytics struggle to reconcile a single view of value
+- downstream ML / targeting learns from fragmented, inconsistent signals
+```
+
 
 ---
 
