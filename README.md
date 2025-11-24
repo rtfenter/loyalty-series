@@ -65,11 +65,12 @@ This series expresses that philosophy through interactive tools and clear system
 ## Writing  
 Essays exploring loyalty architecture, platform design, ML alignment, and data integrity.
 
-- **Why Loyalty Systems Are Some of the Hardest Products to Build (and the Most Underrated)**  
-- **The Platform Problem: Thinking in Boundaries When Shipping Features**  
-- **The ML Problem: Turning Data Into Decisions**  
-- **Designing for Data Integrity at Global Scale**  
-- **When Personalization Learns Too Fast**
+- **[Why Loyalty Systems Are Some of the Hardest Products to Build (and the Most Underrated)](https://medium.com/@rtfenter/why-loyalty-systems-are-some-of-the-hardest-products-to-build-and-the-most-underrated-d9f638097840)**  
+- **[The Platform Problem: Thinking in Boundaries When Shipping Features](https://medium.com/@rtfenter/the-platform-problem-thinking-in-boundaries-when-shipping-features-311c734ed55b)**  
+- **[The ML Problem: Turning Data Into Decisions](https://medium.com/@rtfenter/the-ml-problem-turning-data-into-decisions-a28534a22988)**  
+- **[Designing for Data Integrity at Global Scale](https://medium.com/@rtfenter/designing-for-data-integrity-at-global-scale-3c7fb8af5c6f)**  
+- **[When Personalization Learns Too Fast](https://medium.com/@rtfenter/when-personalization-learns-too-fast-901b0883adb0)**
+
 
 ---
 
